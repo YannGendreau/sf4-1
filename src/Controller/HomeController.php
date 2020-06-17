@@ -10,14 +10,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/test", name="test")
+     * @Route("/", name="home")
      */
     public function index()
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/HomeController.php',
+        return $this->render('home.html.twig', [
+            'pseudo' => 'John Doe',
+            'liste' => [
+                'foo',
+                'bar',
+                'baz',
+            ]
+
         ]);
+
     }
 
     /**
