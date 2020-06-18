@@ -12,4 +12,42 @@
 
    <h1>Liste des produits</h1>
 
+    <a href="'{{ path('product_add') }}" class="btn-success btn-block">
+        Nouveau produit
+    </a>
+
+    <table class="table">
+        <thread>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th></th>
+            </tr>
+        </thread>
+        <tbody>
+        {% for product in product_list %}
+        <tr>
+            {#.id cherche auto s'il y a un get id#}
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price|number_format(2, '.', ' ') }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>
+                {#route qui nécessite un parametre dynamique#}
+                <a href="{{ path('product_edit', {id: product.id}) }}" class="btn btn-primary">
+                    Modifier
+                </a>
+                <a href="#" class="btn btn-danger">
+                    Supprimer
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
 {% endblock %}
