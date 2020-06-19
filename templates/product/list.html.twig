@@ -10,9 +10,9 @@
 {# On écrase le bloc body #}
 {% block body %}
 
-   <h1>Liste des produits</h1>
+   <h1 class="text-center">Liste des produits</h1>
 
-    <a href="'{{ path('product_add') }}" class="btn-success btn-block">
+    <a href="{{ path('product_add') }}" class="btn btn-success btn-block">
         Nouveau produit
     </a>
 

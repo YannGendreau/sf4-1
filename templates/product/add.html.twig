@@ -8,6 +8,32 @@
 {# On écrase le bloc body #}
 {% block body %}
 
-    <h1>Ajouter un produit</h1>
+    <h1 style="text-align: center">Ajouter un produit</h1>
+
+    {# ouvrir et fermer le formulaire#}
+
+    {{ form_start(product_form) }}
+
+    {{ form_row(product_form.name, {
+        label: 'Nom du produit:'
+    }) }}
+
+    {{ form_row(product_form.description,{
+        label :'Description:'
+    }) }}
+
+    {{ form_row(product_form.price, {
+        label:'Prix: '
+    }) }}
+
+    {{ form_row(product_form.quantity, {
+        label:'Quantité en stock:'
+    }) }}
+
+
+    <button type="submit" class="btn btn-success btn-block">
+        Ajouter un nouveau produit
+    </button>
+    {{ form_end(product_form) }}
 
 {% endblock %}
